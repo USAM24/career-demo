@@ -103,20 +103,27 @@ export default function Example() {
           </Popover>
 
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Features
+            For Job Seekers
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Marketplace
+            For Companies
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
+            Blog
+          </a>
+          <a href="#" className="text-sm font-semibold leading-6 text-green-text">
+            Post a Job
           </a>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-5">
+        <button class="rounded-md w-31 h-10 text-white bg-green-button hover:bg-green-button active:bg-green-button focus:outline-none focus:ring focus:green-button... px-7  py-2">
+        Login
+      </button>
+      <button class=" rounded-md w-30 h-10 text-white bg-green-button hover:bg-green-button active:bg-green-button focus:outline-none focus:ring focus:green-button... px-4 py-2">
+        Register
+      </button>
         </div>
+
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
@@ -170,7 +177,7 @@ export default function Example() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Marketplace
+                  For Companies
                 </a>
                 <a
                   href="#"
