@@ -47,7 +47,7 @@ export default function Example() {
             <img alt="" src="https://i.ibb.co/LNL5WX9/Ellipse-129.png" className="h-20 w-auto" />
           </a>
         </div>
-        <div className="flex lg:hidden">
+        {/* <div className="flex lg:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
@@ -56,7 +56,7 @@ export default function Example() {
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="h-6 w-6" />
           </button>
-        </div>
+        </div> */}
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
@@ -64,7 +64,7 @@ export default function Example() {
               <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
             </PopoverButton>
 
-            <PopoverPanel
+            {/* <PopoverPanel
               transition
               className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
             >
@@ -99,7 +99,7 @@ export default function Example() {
                   </a>
                 ))}
               </div>
-            </PopoverPanel>
+            </PopoverPanel> */}
           </Popover>
 
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
@@ -125,7 +125,7 @@ export default function Example() {
         </div>
 
       </nav>
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+      {/* <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
@@ -197,7 +197,7 @@ export default function Example() {
             </div>
           </div>
         </DialogPanel>
-      </Dialog>
+      </Dialog> */}
     </header>
   )
 }
