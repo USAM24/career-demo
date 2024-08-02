@@ -20,5 +20,5 @@ body {
 }
 
 .active {
-  color: #f2f2f2;
+  @apply text-[#f2f2f2];
 }

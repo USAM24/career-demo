@@ -1,5 +1,13 @@
+import PostMain from './PostMain';
+
 const PostJobPage = () => {
-  return <div>PostJobPage</div>;
+  return (
+    <header className="bg-primary">
+      <div>
+        <PostMain />
+      </div>
+    </header>
+  );
 };
 
 export default PostJobPage;

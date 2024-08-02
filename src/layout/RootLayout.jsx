@@ -9,7 +9,7 @@ const RootLayout = () => {
       <div className="flex-grow min-h-[calc(100vh-180px)]">
         <Outlet />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 };
