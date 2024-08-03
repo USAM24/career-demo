@@ -13,6 +13,13 @@ export default {
         neutralWhite: 'var(--neutral-white-color)',
         neutralBlack: 'var(--neutral-black-color)',
       },
+      backgroundColor: {
+        'teal-Nav': '#F6FAFB',
+        'green-button': '#20B486',
+      },
+      textColor: {
+        'green-text': '#56BC80',
+      },
     },
   },
   plugins: [],
