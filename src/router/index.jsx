@@ -6,6 +6,7 @@ import {
 import {
   AlqemamPage,
   ApplicationPage,
+  BlogPage,
   CandidatePage,
   CandidatesPage,
   CompaniesPage,
@@ -50,6 +51,7 @@ const router = createBrowserRouter(
           element={<CompleteApplicationPage />}
         />
         <Route path="/application" element={<ApplicationPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/post-job" element={<PostJobPage />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/companies" element={<CompaniesPage />} />

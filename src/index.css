@@ -4,10 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #04ae95;
+  --secondary-color: #037c6a;
+  --tertiary-color: #ffb941;
+  --primary-text-color: #7d7d7d;
+  --secondary-text-color: #303030;
+  --tertiary-text-color: #4a4a4a;
+  --neutral-white-color: #ffffff;
+  --neutral-black-color: #000000;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
 
 .active {
-  color: #f2f2f2;
+  @apply text-[#f2f2f2];
 }
