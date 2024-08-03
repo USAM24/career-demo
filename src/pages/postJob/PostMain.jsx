@@ -1,41 +1,51 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import PostHero from '../../SVG/PostHero';
 import Send from '../../SVG/Send';
 
 const PostMain = () => {
-  // State to hold the value of the input field
-  const [value, setValue] = useState('');
+  const [value, setvalue] = useState('');
 
-  // Event handler for the input field to update the state
   const onChangeHandler = (e) => {
-    setValue(e.target.value);
+    setvalue(e.target.value);
   };
 
-  // Log the current value of the input field (useful for debugging)
   console.log(value);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center lg:justify-between">
+    <div className="flex flex-col lg:flex-row items-center justify-between 2xl:container 2xl:mx-auto">
       {/* Left section with a hero image */}
-      <div className="w-full lg:basis-1/2 overflow-hidden lg:pl-[21px] mb-10 lg:mb-0">
+      <motion.div
+        initial={{ x: '-100%', opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: 'easeOut' }}
+        className="overflow-hidden basis-1/2 lg:pl-[21px] pl-[55px] pb-8 lg:pb-0"
+      >
         <PostHero width={721.91} height={700.4} />
-      </div>
+      </motion.div>
 
       {/* Right section with the form and text */}
-      <div className="w-full lg:basis-1/2 px-4 lg:px-0">
-        <div className="flex flex-col items-center lg:items-start">
+      <div className="basis-1/2 2xl:flex items-center justify-center">
+        <div className="flex flex-col">
           {/* Main heading text */}
-          <p className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[52px] font-bold text-[#F2F2F2] max-w-[100%] lg:max-w-[515px] tracking-[0.02rem] capitalize text-center lg:text-left">
+          <motion.p
+            initial={{ x: '100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="text-[30px] text-center lg:text-left lg:text-[42px] xl:text-[52px] 2xl:text-[60px] font-bold text-[#F2F2F2] max-w-[515px] tracking-[0.02rem] capitalize"
+          >
             Get Email when we find your best candidate
-          </p>
+          </motion.p>
 
           {/* Email subscription form */}
-          <div className="flex flex-col sm:flex-row items-center mt-8 md:mt-16 lg:mt-24 w-full max-w-[329px]">
-            <div className="flex items-center w-full sm:w-auto bg-neutralWhite rounded-tl rounded-bl p-3">
-              {/* Icon next to the input field */}
-              <Send className={'text-tertiary mr-3 w-5 h-5'} />
-
-              {/* Email input field */}
+          <motion.div
+            initial={{ x: '100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 1, ease: 'easeOut' }}
+            className="flex items-center lg:mt-12 mt-8 justify-center lg:justify-normal"
+          >
+            <div className="flex items-center lg:w-[329px] w-[250px] bg-neutralWhite rounded-tl rounded-bl p-3">
+              <Send className="text-tertiary mr-3 w-5 h-5" />
               <input
                 type="text"
                 className="w-full outline-none text-primaryText placeholder:text-primaryText caret-primaryText placeholder:text-sm"
@@ -44,11 +54,10 @@ const PostMain = () => {
                 onChange={onChangeHandler}
               />
             </div>
-            {/* Subscribe button */}
-            <button className="bg-tertiary rounded-tr rounded-br p-3 text-neutralWhite w-full sm:w-auto mt-4 sm:mt-0 sm:ml-2">
+            <button className="bg-tertiary rounded-tr rounded-br p-3 text-neutralWhite">
               Subscribe
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

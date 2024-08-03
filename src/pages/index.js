@@ -1,5 +1,6 @@
 import AlqemamPage from './alqemam/Alqemam';
 import ApplicationPage from './application/Application';
+import BlogPage from './blog/Blog';
 import CandidatePage from './candidate/Candidate';
 import CandidatesPage from './candidates/Candidates';
 import CompaniesPage from './companies/Companies';
@@ -38,4 +39,5 @@ export {
   AlqemamPage,
   SigninPage,
   SignupPage,
+  BlogPage,
 };
