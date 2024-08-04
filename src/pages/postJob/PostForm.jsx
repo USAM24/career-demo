@@ -1,83 +1,231 @@
+// Import necessary modules and data
 import { useState } from 'react';
-import { formData } from '../../data'; // Importing formData from the specified path
+import {
+  formCompanyAutofillValues,
+  formCompanyData,
+  formData,
+} from '../../data'; // Importing formData from the specified path
 
+// Define the PostForm component
 const PostForm = () => {
-  // Initial state for the form data using useState hook
+  // State to manage form data for the personal information form
   const [form1Data, setForm1Data] = useState({
-    firstName: '',
-    userName: '',
-    email: '',
-    address: '',
-    jobTitle: '',
-    jobType: '',
-    salary: '',
-    closingDate: '',
-    jobQualifications: '',
+    firstName: '', // User's first name
+    userName: '', // User's username
+    email: '', // User's email address
+    address: '', // User's address
+    jobTitle: '', // Job title the user is applying for
+    jobType: '', // Type of job (e.g., full-time, part-time)
+    salary: '', // Expected salary
+    closingDate: '', // Application closing date
+    jobQualifications: '', // Required job qualifications
   });
 
-  // Handler for form input changes
+  // State to manage data for the job description
+  const [form2Data, setForm2Data] = useState({
+    JobDescription: '', // Description of the job
+  });
+
+  // State to manage company-related data
+  const [formCompanyValues, setFormCompanyValues] = useState({
+    companyName: '', // Name of the company
+    companyEmail: '', // Company's contact email
+    companyPhone: '', // Company's contact phone number
+    startedDate: '', // Date when the company started
+    numberOfWorkers: '', // Number of workers in the company
+    moreDetails: '', // Additional details about the company
+  });
+
+  // Handler for changes in personal information form inputs
   const handleForm1Change = (e) => {
     const { name, value } = e.target;
     setForm1Data((prevData) => ({
       ...prevData,
-      [name]: value, // Update the corresponding field with the new value
+      [name]: value, // Update the specific field with the new value
     }));
+  };
+
+  // Handler for changes in company-related form inputs
+  const handleFormCompanyChange = (e) => {
+    const { name, value } = e.target;
+    setFormCompanyValues({ ...formCompanyValues, [name]: value });
   };
 
   // Handler for form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+    e.preventDefault(); // Prevent the default form submission behavior
 
-    // Combine data from both forms (if applicable)
+    // Combine data from all the forms
     const combinedData = {
-      ...form1Data,
+      ...form1Data, // Data from the personal information form
+      ...form2Data, // Data from the job description form
+      ...formCompanyValues, // Data from the company information form
     };
 
-    // Handle submission logic (e.g., send data to server)
+    // Submit the combined data (e.g., send it to a server)
     console.log('Submitted Data:', combinedData);
   };
 
+  // Handler to clear all form data (reset to initial state)
+  const handleDelete = () => {
+    setForm1Data({
+      firstName: '',
+      userName: '',
+      email: '',
+      address: '',
+      jobTitle: '',
+      jobType: '',
+      salary: '',
+      closingDate: '',
+      jobQualifications: '',
+    });
+    setForm2Data({
+      JobDescription: '',
+    });
+    setFormCompanyValues({
+      companyName: '',
+      companyEmail: '',
+      companyPhone: '',
+      startedDate: '',
+      numberOfWorkers: '',
+      moreDetails: '',
+    });
+  };
+
+  // JSX for rendering the form
   return (
-    <div className="container mx-auto pt-8 px-2 lg:px-20 xl:px-32 pb-10 lg:pb-20">
-      <h1 className="text-primary font-semibold pb-7 lg:text-[28px]">
+    <div className="">
+      <h1 className="text-primary font-semibold lg:pb-7 lg:text-[28px] container mx-auto px-2 lg:px-20 xl:px-32">
         Write your Details
       </h1>
-      <form onSubmit={handleSubmit}>
-        {formData.map((field, index) => (
-          <div
-            key={index}
-            className="flex flex-col last-of-type:flex-row gap-3 pb-8 last-of-type:items-center"
-          >
-            <label
-              htmlFor={field.name}
-              className="text-tertiaryText text-base font-normal"
+      <form onSubmit={handleSubmit} className="">
+        <div className="container mx-auto pt-8 px-2 lg:px-20 xl:px-32">
+          {formData.map((field, index) => (
+            <div
+              key={index}
+              className="flex flex-col last-of-type:flex-row gap-3 pb-8 last-of-type:items-center"
             >
-              {field.label}
-            </label>
-            {field.type === 'checkbox' ? (
-              <input
-                type={field.type}
-                name={field.name}
-                id={field.name}
-                className="w-4 h-4 text-neutralWhite bg-primary border-[#B4FDF2] rounded focus:ring-primary focus:ring-2 focus:rounded checked:text-red"
+              <label
+                htmlFor={field.name}
+                className="text-tertiaryText text-base font-normal"
+              >
+                {field.label}
+              </label>
+              {field.type === 'checkbox' ? (
+                <input
+                  type={field.type}
+                  name={field.name}
+                  id={field.name}
+                  className="w-4 h-4 text-neutralWhite bg-primary border-[#B4FDF2] rounded focus:ring-primary focus:ring-2"
+                />
+              ) : (
+                <input
+                  type={field.type}
+                  name={field.name}
+                  id={field.name}
+                  placeholder={field.placeholder}
+                  value={form1Data[field.name]}
+                  onChange={handleForm1Change}
+                  className="w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText"
+                />
+              )}
+            </div>
+          ))}
+          <div className="pt-10 lg:pt-20 pb-20 lg:pb-32">
+            <h1 className="text-primary font-semibold pb-7 lg:text-[28px]">
+              Additional Information
+            </h1>
+            <div className="flex flex-col gap-3 pb-8">
+              <label className="text-tertiaryText text-base font-normal">
+                Job description
+              </label>
+              <textarea
+                name="JobDescription"
+                value={form2Data.JobDescription}
+                onChange={(e) =>
+                  setForm2Data((prevData) => ({
+                    ...prevData,
+                    [e.target.name]: e.target.value,
+                  }))
+                }
+                placeholder="type all the details about the job"
+                className="resize-none h-[320px] w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-3 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText"
               />
-            ) : (
-              <input
-                type={field.type}
-                name={field.name}
-                id={field.name}
-                placeholder={field.placeholder}
-                value={form1Data[field.name]}
-                onChange={handleForm1Change}
-                className="w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText"
-              />
-            )}
+            </div>
           </div>
-        ))}
-        <button>suuu</button>
+        </div>
+        <div className="bg-primary py-7 px-2 lg:px-20 xl:px-32 lg:py-44">
+          <div className="bg-[#F6FAFB] py-7 px-4 lg:px-20 xl:px-32 rounded-md lg:py-20">
+            <h1 className="text-primary font-semibold pb-7 lg:text-[28px] ">
+              Company Information
+            </h1>
+            <div className="flex flex-col">
+              <div className="flex lg:flex-row lg:flex-wrap lg:gap-5 flex-col gap-3 pb-5">
+                {formCompanyData.slice(0, 4).map((field, index) => (
+                  <div
+                    key={index}
+                    className="w-full lg:w-[48%] xl:w-[48.8%] 2xl:w-[49.1%]"
+                  >
+                    <input
+                      type={field.type}
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      value={formCompanyValues[field.name]}
+                      onChange={handleFormCompanyChange}
+                      className="w-full rounded-md bg-neutralWhite outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-primaryText placeholder:text-primaryText"
+                    />
+                  </div>
+                ))}
+              </div>
+              {formCompanyData.slice(4, 6).map((field, index) => (
+                <div key={index}>
+                  {field.type === 'textarea' ? (
+                    <textarea
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      value={formCompanyValues[field.name]}
+                      onChange={handleFormCompanyChange}
+                      className="resize-none h-[155px] w-full rounded-md bg-neutralWhite outline-none border border-[#B4FDF2] my-5 py-3 px-3 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText"
+                    />
+                  ) : (
+                    <input
+                      type={field.type}
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      value={formCompanyValues[field.name]}
+                      onChange={handleFormCompanyChange}
+                      className="w-full rounded-md bg-neutralWhite outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-primaryText placeholder:text-primaryText"
+                    />
+                  )}
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={() => setFormCompanyValues(formCompanyAutofillValues)}
+                className="mb-8 lg:mb-12 w-full lg:w-fit px-10 bg-secondary rounded-md py-4 text-[#F2F2F2] font-semibold tracking-wider"
+              >
+                Auto fill
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="py-16 lg:pt-28 lg:pb-16 px-3 lg:px-12 xl:px-20 space-y-7 lg:space-x-11">
+          <button
+            className="w-full lg:w-fit px-40 bg-secondary rounded-[10px] py-3 text-[#F2F2F2] font-semibold tracking-wider"
+            type="submit"
+          >
+            Submit
+          </button>
+          <button
+            className="w-full lg:w-fit border-[2px] border-primaryText px-40 bg-neutralWhite rounded-[10px] py-3 text-[#636363] font-semibold tracking-wider"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default PostForm;
+export default PostForm; // Export the PostForm component as default

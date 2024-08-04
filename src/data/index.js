@@ -119,3 +119,21 @@ export const formData = [
   },
   { label: 'Save as a Draft', name: 'saveAsDraft', type: 'checkbox' }, // Checkboxes typically don't need placeholders
 ];
+
+export const formCompanyData = [
+  { placeholder: 'Company Name', type: 'text', name: 'companyName' },
+  { placeholder: 'Company Email', type: 'email', name: 'companyEmail' },
+  { placeholder: 'Company Phone', type: 'tel', name: 'companyPhone' },
+  { placeholder: 'Started Date', type: 'date', name: 'startedDate' },
+  { placeholder: 'Number of Workers', type: 'number', name: 'numberOfWorkers' },
+  { placeholder: 'Any More Details', type: 'textarea', name: 'moreDetails' },
+];
+
+export const formCompanyAutofillValues = {
+  companyName: 'Tech Innovators Inc.',
+  companyEmail: 'info@techinnovators.com',
+  companyPhone: '+1-800-123-4567',
+  startedDate: '2020-05-15',
+  numberOfWorkers: 250,
+  moreDetails: 'Specializes in AI and machine learning solutions.',
+};
