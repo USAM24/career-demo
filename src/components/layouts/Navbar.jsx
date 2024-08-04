@@ -5,7 +5,7 @@ import { navData } from '../../data'; // Importing navigation data
 import { motion, AnimatePresence } from 'framer-motion'; // Importing Framer Motion for animations
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; // Importing icons from Heroicons
 
-export default function Navbar() {
+const Navbar = () => {
   // State to manage the open/close state of the mobile menu
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -158,4 +158,6 @@ export default function Navbar() {
       </AnimatePresence>
     </header>
   );
-}
+};
+
+export default Navbar;
