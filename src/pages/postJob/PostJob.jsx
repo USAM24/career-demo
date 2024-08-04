@@ -7,7 +7,6 @@ import PostForm from './PostForm';
 const PostJobPage = () => {
   const location = useLocation();
   const pathname = location.pathname;
-  console.log(pathname);
   return (
     <main>
       <header className="pt-16 -mt-[1px] bg-primary overflow-hidden">
@@ -16,7 +15,7 @@ const PostJobPage = () => {
         </div>
       </header>
       <div className="pt-16">
-        <h1 className="text-primary text-[22px] md:text-[29px] lg:text-[36px] xl:text-[42px] pl-4 md:pl-6 lg:pl-8 xl:pl-12 2xl:pl-24 font-bold lg:text-left text-center">
+        <h1 className="text-primary pb-7 text-[22px] md:text-[29px] lg:text-[36px] xl:text-[42px] pl-4 md:pl-6 lg:pl-8 xl:pl-12 2xl:pl-24 font-bold lg:text-left text-center">
           Post a job
         </h1>
         <div>
