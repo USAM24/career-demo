@@ -19,8 +19,9 @@ const Stepper = ({ pathname, steps }) => {
    * @returns {boolean} - True if the URL is part of the current pathname, false otherwise
    */
   const isCurrentStep = (url) => {
-    const urlPath = url.toLowerCase();
-    return pathname.includes(urlPath);
+    const normalizedPathname = pathname.toLowerCase();
+    const normalizedUrl = `/${url.toLowerCase()}`;
+    return normalizedPathname === normalizedUrl;
   };
 
   return (
