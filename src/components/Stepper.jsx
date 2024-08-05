@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 /**
@@ -5,6 +6,11 @@ import PropTypes from 'prop-types';
  *
  * This component renders a multi-step progress bar for a given set of steps.
  * It highlights the current step based on the provided pathname.
+ *
+ * Additionally, the component features animations for both the entire container
+ * and individual elements using Framer Motion. The animations include:
+ * - Fading in and out the entire component.
+ * - Scaling and fading in the step number elements.
  *
  * @param {string} pathname - The current path to determine the active step.
  * @param {Array} steps - An array of step objects, each containing:
@@ -24,14 +30,38 @@ const Stepper = ({ pathname, steps }) => {
     return normalizedPathname === normalizedUrl;
   };
 
+  // Variants for animating individual elements (like the step number)
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.5 }, // Initial state: invisible and smaller
+    visible: { opacity: 1, scale: 1 }, // Final state: fully visible and normal size
+  };
+
+  // Variants for animating the entire container
+  const containerVariants = {
+    hidden: { opacity: 0 }, // Initial state: invisible
+    visible: { opacity: 1 }, // Final state: fully visible
+    exit: { opacity: 0 }, // Exit state: invisible
+  };
+
   return (
-    <main>
+    <motion.main
+      initial="hidden" // Initial animation state
+      animate="visible" // Animate to visible state
+      exit="exit" // Exit animation state
+      variants={containerVariants} // Apply container animation variants
+    >
       {/* Container for the stepper component, hidden on small screens */}
       <div className="container mx-auto hidden lg:flex items-center justify-center pt-8 pb-20">
         {/* Iterate through the steps to render each step in the stepper */}
         {steps.map(({ step, url }, idx) => (
           <div key={idx} className={`${idx >= 2 ? 'w-20' : 'w-[390px]'}`}>
-            <div className="flex items-center">
+            <motion.div
+              className="flex items-center"
+              initial="hidden" // Initial animation state for the step number
+              animate="visible" // Animate to visible state
+              variants={imageVariants} // Apply image animation variants
+              transition={{ duration: 0.5 }} // Duration of the animation
+            >
               {/* Step number display, highlighted if it matches the current step */}
               <div
                 className={`w-20 h-20 rounded-full flex items-center justify-center font-bold text-[32px] ${
@@ -48,7 +78,7 @@ const Stepper = ({ pathname, steps }) => {
                   idx <= 1 ? 'w-[calc(100%-80px)] bg-[#83FCEA] h-[2px]' : ''
                 }`}
               />
-            </div>
+            </motion.div>
             {/* Step label, styled differently if it matches the current step */}
             <div
               className={`text-[20px] font-normal pt-5 text-left ${
@@ -60,7 +90,7 @@ const Stepper = ({ pathname, steps }) => {
           </div>
         ))}
       </div>
-    </main>
+    </motion.main>
   );
 };
 
