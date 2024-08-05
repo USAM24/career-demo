@@ -12,6 +12,8 @@ import HomePage from './home/Home';
 import HrAssistantPage from './hrAssistant/HrAssistant';
 import JobsinEgyptPage from './jobsinEgypt/JobsinEgypt';
 import PostJobPage from './postJob/PostJob';
+import PostReview from './postJob/postReview/PostReview';
+import PostSubmit from './postJob/postSubmit/PostSubmit';
 import SavedPage from './saved/Saved';
 import SigninPage from './signin/Signin';
 import SignupPage from './signup/Signup';
@@ -40,4 +42,6 @@ export {
   SigninPage,
   SignupPage,
   BlogPage,
+  PostReview,
+  PostSubmit,
 };

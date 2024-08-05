@@ -18,6 +18,8 @@ import {
   HrAssistantPage,
   JobsinEgyptPage,
   PostJobPage,
+  PostReview,
+  PostSubmit,
   SavedPage,
   SigninPage,
   SignupPage,
@@ -25,7 +27,7 @@ import {
   UnlockedCandidatePage,
   UsersPage,
 } from '../pages';
-import { RootLayout } from '../layout';
+import { PostJobLayout, RootLayout } from '../layout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -52,7 +54,11 @@ const router = createBrowserRouter(
         />
         <Route path="/application" element={<ApplicationPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/post-job" element={<PostJobPage />} />
+        <Route path="/post-job" element={<PostJobLayout />}>
+          <Route index element={<PostJobPage />} />
+          <Route path="review" element={<PostReview />} />
+          <Route path="submit" element={<PostSubmit />} />
+        </Route>
         <Route path="/help" element={<HelpPage />} />
         <Route path="/companies" element={<CompaniesPage />} />
         <Route path="/alqemam" element={<AlqemamPage />} />

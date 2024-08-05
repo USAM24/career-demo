@@ -59,11 +59,11 @@ export const postSteps = [
   },
   {
     step: 'Review', // The name of the second step
-    url: 'post-review', // URL segment to identify the second step
+    url: 'post-job/review', // URL segment to identify the second step
   },
   {
     step: 'Submit', // The name of the third step
-    url: 'post-submit', // URL segment to identify the third step
+    url: 'post-job/submit', // URL segment to identify the third step
   },
 ];
 
@@ -137,3 +137,41 @@ export const formCompanyAutofillValues = {
   numberOfWorkers: 250,
   moreDetails: 'Specializes in AI and machine learning solutions.',
 };
+
+export const JobRequiredSkills = [
+  {
+    skill: 'Product managing tools',
+    level: 'Excellent',
+  },
+  {
+    skill: 'Communication skills',
+    level: 'Excellent',
+  },
+  {
+    skill: 'Presentation skills',
+    level: 'very good',
+  },
+  {
+    skill: 'Programming skills',
+    level: 'very good',
+  },
+  {
+    skill: 'English speaking',
+    level: 'professional',
+  },
+];
+
+export const JobDetails = [
+  {
+    title: 'Job type',
+    details: 'online position',
+  },
+  {
+    title: 'Starting date',
+    details: 'In a month',
+  },
+  {
+    title: 'Job salary',
+    details: '10 k per month',
+  },
+];

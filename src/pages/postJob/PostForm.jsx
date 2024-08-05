@@ -6,6 +6,10 @@ import {
   formData,
 } from '../../data'; // Importing formData from the specified path
 
+// Importing Css File
+import './PostJub.css';
+import { Navigate } from 'react-router-dom';
+
 // Define the PostForm component
 const PostForm = () => {
   // State to manage form data for the personal information form
@@ -36,6 +40,9 @@ const PostForm = () => {
     moreDetails: '', // Additional details about the company
   });
 
+  const [shouldNavigate, setShouldNavigate] = useState(false);
+  const [combinedData, setCombinedData] = useState(null);
+
   // Handler for changes in personal information form inputs
   const handleForm1Change = (e) => {
     const { name, value } = e.target;
@@ -64,6 +71,10 @@ const PostForm = () => {
 
     // Submit the combined data (e.g., send it to a server)
     console.log('Submitted Data:', combinedData);
+
+    // Set the state to trigger navigation
+    setCombinedData(combinedData);
+    setShouldNavigate(true);
   };
 
   // Handler to clear all form data (reset to initial state)
@@ -101,10 +112,7 @@ const PostForm = () => {
       <form onSubmit={handleSubmit} className="">
         <div className="container mx-auto pt-8 px-2 lg:px-20 xl:px-32">
           {formData.map((field, index) => (
-            <div
-              key={index}
-              className="flex flex-col last-of-type:flex-row gap-3 pb-8 last-of-type:items-center"
-            >
+            <div key={index} className="flex flex-col gap-3 pb-8 postCheckbox">
               <label
                 htmlFor={field.name}
                 className="text-tertiaryText text-base font-normal"
@@ -223,6 +231,9 @@ const PostForm = () => {
             Delete
           </button>
         </div>
+        {shouldNavigate && (
+          <Navigate to="/post-job/review" state={{ userData: combinedData }} />
+        )}
       </form>
     </div>
   );
