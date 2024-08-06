@@ -19,7 +19,7 @@ const Footer = () => {
                 {/* Logo component for the brand's logo */}
                 <Logo />
               </Link>
-              <p className="text-secondaryText text-base max-w-[265px] leading-[1.9rem]">
+              <p className="text-neutral-800 text-base max-w-[265px] leading-[1.9rem]">
                 Find jobs easily, USAM job search website built to help you
                 every step of the way. Get free access to millions of job
                 postings, personalize your search, and submit job applications.
@@ -33,9 +33,9 @@ const Footer = () => {
           <div className="grid grid-cols-4 gap-20 pt-[55px]">
             {footerData.map(({ title, items }, index) => (
               <div key={index} className="flex flex-col gap-2">
-                <h3 className="font-semibold text-secondaryText">{title}</h3>
+                <h3 className="font-semibold text-neutral-800">{title}</h3>
                 {items.map((item, itemIndex) => (
-                  <Link to={'/'} key={itemIndex} className="text-secondaryText">
+                  <Link to={'/'} key={itemIndex} className="text-neutral-800">
                     {item}
                   </Link>
                 ))}
@@ -46,7 +46,7 @@ const Footer = () => {
 
         {/* Footer bottom section */}
         <div className="pb-[35px] flex justify-between items-center">
-          <p className="text-secondary font-medium">
+          <p className="text-primary-700 font-medium">
             &copy; {new Date().getFullYear()}, All rights reserved to USAM
           </p>
           {/* Social media icons */}

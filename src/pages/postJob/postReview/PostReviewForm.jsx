@@ -88,10 +88,10 @@ const PostReviewForm = ({ data }) => {
               alt="companyLogo"
             />
             <div className="space-y-1 text-center">
-              <h1 className="text-[18px] font-medium text-tertiary">
+              <h1 className="text-[18px] font-medium text-secondary-300">
                 Partnership investment
               </h1>
-              <p className="text-[14px] text-primaryText">
+              <p className="text-[14px] text-neutral-500">
                 we offer excellent investment solution
               </p>
             </div>
@@ -100,8 +100,8 @@ const PostReviewForm = ({ data }) => {
               onClick={handleEditClick}
               type="button"
               className={`${
-                !isEditing ? 'bg-secondary' : 'bg-tertiary'
-              } hover:scale-110 duration-300 flex items-center justify-center gap-2 font-semibold py-4 px-5 rounded-[10px] text-neutralWhite tracking-wider`}
+                !isEditing ? 'bg-primary-700' : 'bg-secondary-300'
+              } hover:scale-110 duration-300 flex items-center justify-center gap-2 font-semibold py-4 px-5 rounded-[10px] text-pure-white tracking-wider`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +129,7 @@ const PostReviewForm = ({ data }) => {
                   <div key={name} className="">
                     <label
                       htmlFor={name}
-                      className="text-tertiaryText text-base font-normal"
+                      className="text-neutral-700 text-base font-normal"
                     >
                       {label}
                     </label>
@@ -139,7 +139,7 @@ const PostReviewForm = ({ data }) => {
                       value={value}
                       disabled={!isEditing} // Disable input if not in edit mode
                       onChange={handleInputChange}
-                      className={`w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText ${
+                      className={`w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700 ${
                         !isEditing ? 'cursor-not-allowed' : 'cursor-auto'
                       }`}
                     />
@@ -154,7 +154,7 @@ const PostReviewForm = ({ data }) => {
                   <div key={name} className="">
                     <label
                       htmlFor={name}
-                      className="text-tertiaryText text-base font-normal"
+                      className="text-neutral-700 text-base font-normal"
                     >
                       {label}
                     </label>
@@ -164,7 +164,7 @@ const PostReviewForm = ({ data }) => {
                       value={value}
                       disabled={!isEditing} // Disable input if not in edit mode
                       onChange={handleInputChange}
-                      className={`w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText ${
+                      className={`w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700 ${
                         !isEditing ? 'cursor-not-allowed' : 'cursor-auto'
                       }`}
                     />
@@ -176,7 +176,7 @@ const PostReviewForm = ({ data }) => {
       </div>
       <div className="mt-10 pb-16 lg:pb-0">
         <button
-          className="w-full md:w-fit md:px-40 bg-secondary rounded-[10px] py-3 text-[#F2F2F2] font-semibold tracking-wider"
+          className="w-full md:w-fit md:px-40 bg-primary-700 rounded-[10px] py-3 text-[#F2F2F2] font-semibold tracking-wider"
           type="submit"
         >
           Submit

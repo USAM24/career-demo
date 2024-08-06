@@ -13,7 +13,7 @@ const Navbar = () => {
   const isLoggedIn = false;
 
   return (
-    <header className="bg-primary">
+    <header className="bg-primary-600">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -42,7 +42,7 @@ const Navbar = () => {
             <span className="sr-only">Open main menu</span>
             <Bars3Icon
               aria-hidden="true"
-              className="h-10 w-10 text-secondaryText"
+              className="h-10 w-10 text-neutral-800"
             />
           </motion.button>
         </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
             <NavLink
               to={link}
               key={id}
-              className="text-sm font-semibold leading-6 text-secondaryText"
+              className="text-sm font-semibold leading-6 text-neutral-800"
             >
               {name}
             </NavLink>
@@ -64,13 +64,13 @@ const Navbar = () => {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-5">
           <Link
             to={'/sign-in'}
-            className="rounded-md w-31 h-10 text-secondary bg-neutralWhite hover:bg-tertiary focus:outline-none px-7 py-2 duration-200 hover:text-secondaryText"
+            className="rounded-md w-31 h-10 text-primary-700 bg-pure-white hover:bg-secondary-300 focus:outline-none px-7 py-2 duration-200 hover:text-neutral-800"
           >
             Login
           </Link>
           <Link
             to={'/sign-up'}
-            className="rounded-md w-30 h-10 text-secondary bg-neutralWhite hover:bg-tertiary focus:outline-none px-4 py-2 duration-200 hover:text-secondaryText"
+            className="rounded-md w-30 h-10 text-primary-700 bg-pure-white hover:bg-secondary-300 focus:outline-none px-4 py-2 duration-200 hover:text-neutral-800"
           >
             Register
           </Link>
@@ -93,7 +93,7 @@ const Navbar = () => {
               transition={{ duration: 0.3 }} // Animation duration
               className="fixed inset-0 z-10 overflow-y-auto"
             >
-              <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-primary px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+              <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-primary-600 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                 {/* Close button and logo in mobile menu */}
                 <div className="flex items-center justify-between">
                   <Link to="/" className="-m-1.5 p-1.5">
@@ -114,7 +114,7 @@ const Navbar = () => {
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon
                       aria-hidden="true"
-                      className="h-8 w-8 text-secondaryText"
+                      className="h-8 w-8 text-neutral-800"
                     />
                   </motion.button>
                 </div>
@@ -127,7 +127,7 @@ const Navbar = () => {
                         <NavLink
                           to={link}
                           key={id}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-secondaryText hover:bg-secondary"
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-800 hover:bg-primary-700"
                         >
                           {name}
                         </NavLink>
@@ -138,13 +138,13 @@ const Navbar = () => {
                     <div className="py-8 space-y-2">
                       <NavLink
                         to="sign-in"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-secondaryText hover:bg-secondary"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-800 hover:bg-primary-700"
                       >
                         {isLoggedIn ? 'Profile' : 'Login'}
                       </NavLink>
                       <NavLink
                         to="sign-up"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-secondaryText hover:bg-secondary"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-800 hover:bg-primary-700"
                       >
                         {isLoggedIn ? 'Logout' : 'Register'}
                       </NavLink>
