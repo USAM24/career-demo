@@ -44,17 +44,17 @@ const PostMain = () => {
             transition={{ delay: 0.2, duration: 1, ease: 'easeOut' }}
             className="flex items-center lg:mt-12 mt-8 justify-center lg:justify-normal"
           >
-            <div className="flex items-center lg:w-[329px] w-[250px] bg-neutralWhite rounded-tl rounded-bl p-3">
-              <Send className="text-tertiary mr-3 w-5 h-5" />
+            <div className="flex items-center lg:w-[329px] w-[250px] bg-pure-white rounded-tl rounded-bl p-3">
+              <Send className="text-secondary-300 mr-3 w-5 h-5" />
               <input
                 type="text"
-                className="w-full outline-none text-primaryText placeholder:text-primaryText caret-primaryText placeholder:text-sm"
+                className="w-full outline-none text-neutral-500 placeholder:text-neutral-500 caret-neutral-500 placeholder:text-sm"
                 placeholder="Enter your email address"
                 value={value}
                 onChange={onChangeHandler}
               />
             </div>
-            <button className="bg-tertiary rounded-tr rounded-br p-3 text-neutralWhite">
+            <button className="bg-secondary-300 rounded-tr rounded-br p-3 text-pure-white">
               Subscribe
             </button>
           </motion.div>

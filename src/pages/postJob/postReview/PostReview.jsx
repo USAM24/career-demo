@@ -44,7 +44,7 @@ const PostReview = () => {
         <PostReviewMain data={reviewMainData} />
       </div>
       <div className="py-4 px-5 container mx-auto lg:px-0 md:py-12  lg:py-20  mt-20 lg:mt-0">
-        <h1 className="text-primary text-[22px] md:text-[29px] lg:text-[36px] xl:text-[42px] font-bold ">
+        <h1 className="text-primary-600 text-[22px] md:text-[29px] lg:text-[36px] xl:text-[42px] font-bold ">
           company Info
         </h1>
         <PostReviewForm data={reviewFormData} />

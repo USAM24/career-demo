@@ -66,8 +66,8 @@ const Stepper = ({ pathname, steps }) => {
               <div
                 className={`w-20 h-20 rounded-full flex items-center justify-center font-bold text-[32px] ${
                   isCurrentStep(url)
-                    ? 'bg-tertiary text-neutralWhite' // Active step styles
-                    : 'bg-neutralWhite text-primary border border-[#83FCEA]' // Inactive step styles
+                    ? 'bg-secondary-300 text-pure-white' // Active step styles
+                    : 'bg-pure-white text-primary-600 border border-[#83FCEA]' // Inactive step styles
                 }`}
               >
                 {idx + 1} {/* Display the step number */}
@@ -82,7 +82,7 @@ const Stepper = ({ pathname, steps }) => {
             {/* Step label, styled differently if it matches the current step */}
             <div
               className={`text-[20px] font-normal pt-5 text-left ${
-                isCurrentStep(url) ? 'text-primary' : 'text-tertiaryText'
+                isCurrentStep(url) ? 'text-primary-600' : 'text-neutral-700'
               }`}
             >
               {step}

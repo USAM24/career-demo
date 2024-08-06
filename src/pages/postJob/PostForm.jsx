@@ -106,7 +106,7 @@ const PostForm = () => {
   // JSX for rendering the form
   return (
     <div className="">
-      <h1 className="text-primary font-semibold lg:pb-7 lg:text-[28px] container mx-auto px-2 lg:px-20 xl:px-32">
+      <h1 className="text-primary-600 font-semibold lg:pb-7 lg:text-[28px] container mx-auto px-2 lg:px-20 xl:px-32">
         Write your Details
       </h1>
       <form onSubmit={handleSubmit} className="">
@@ -115,7 +115,7 @@ const PostForm = () => {
             <div key={index} className="flex flex-col gap-3 pb-8 postCheckbox">
               <label
                 htmlFor={field.name}
-                className="text-tertiaryText text-base font-normal"
+                className="text-neutral-700 text-base font-normal"
               >
                 {field.label}
               </label>
@@ -124,7 +124,7 @@ const PostForm = () => {
                   type={field.type}
                   name={field.name}
                   id={field.name}
-                  className="w-4 h-4 text-neutralWhite bg-primary border-[#B4FDF2] rounded focus:ring-primary focus:ring-2"
+                  className="w-4 h-4 text-pure-white bg-primary-600 border-[#B4FDF2] rounded focus:ring-primary focus:ring-2"
                 />
               ) : (
                 <input
@@ -134,17 +134,17 @@ const PostForm = () => {
                   placeholder={field.placeholder}
                   value={form1Data[field.name]}
                   onChange={handleForm1Change}
-                  className="w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText"
+                  className="w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700"
                 />
               )}
             </div>
           ))}
           <div className="pt-10 lg:pt-20 pb-20 lg:pb-32">
-            <h1 className="text-primary font-semibold pb-7 lg:text-[28px]">
+            <h1 className="text-primary-600 font-semibold pb-7 lg:text-[28px]">
               Additional Information
             </h1>
             <div className="flex flex-col gap-3 pb-8">
-              <label className="text-tertiaryText text-base font-normal">
+              <label className="text-neutral-700 text-base font-normal">
                 Job description
               </label>
               <textarea
@@ -157,14 +157,14 @@ const PostForm = () => {
                   }))
                 }
                 placeholder="type all the details about the job"
-                className="resize-none h-[320px] w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-3 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText"
+                className="resize-none h-[320px] w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-3 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700"
               />
             </div>
           </div>
         </div>
-        <div className="bg-primary py-7 px-2 lg:px-20 xl:px-32 lg:py-44">
+        <div className="bg-primary-600 py-7 px-2 lg:px-20 xl:px-32 lg:py-44">
           <div className="bg-[#F6FAFB] py-7 px-4 lg:px-20 xl:px-32 rounded-md lg:py-20">
-            <h1 className="text-primary font-semibold pb-7 lg:text-[28px] ">
+            <h1 className="text-primary-600 font-semibold pb-7 lg:text-[28px] ">
               Company Information
             </h1>
             <div className="flex flex-col">
@@ -180,7 +180,7 @@ const PostForm = () => {
                       placeholder={field.placeholder}
                       value={formCompanyValues[field.name]}
                       onChange={handleFormCompanyChange}
-                      className="w-full rounded-md bg-neutralWhite outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-primaryText placeholder:text-primaryText"
+                      className="w-full rounded-md bg-pure-white outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-500 placeholder:text-primary-600Text"
                     />
                   </div>
                 ))}
@@ -193,7 +193,7 @@ const PostForm = () => {
                       placeholder={field.placeholder}
                       value={formCompanyValues[field.name]}
                       onChange={handleFormCompanyChange}
-                      className="resize-none h-[155px] w-full rounded-md bg-neutralWhite outline-none border border-[#B4FDF2] my-5 py-3 px-3 xl:py-5 lg:px-7 caret-tertiaryText placeholder:text-tertiaryText"
+                      className="resize-none h-[155px] w-full rounded-md bg-pure-white outline-none border border-[#B4FDF2] my-5 py-3 px-3 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700"
                     />
                   ) : (
                     <input
@@ -202,7 +202,7 @@ const PostForm = () => {
                       placeholder={field.placeholder}
                       value={formCompanyValues[field.name]}
                       onChange={handleFormCompanyChange}
-                      className="w-full rounded-md bg-neutralWhite outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-primaryText placeholder:text-primaryText"
+                      className="w-full rounded-md bg-pure-white outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-500 placeholder:text-primary-600Text"
                     />
                   )}
                 </div>
@@ -210,7 +210,7 @@ const PostForm = () => {
               <button
                 type="button"
                 onClick={() => setFormCompanyValues(formCompanyAutofillValues)}
-                className="mb-8 lg:mb-12 w-full lg:w-fit px-10 bg-secondary rounded-md py-4 text-[#F2F2F2] font-semibold tracking-wider"
+                className="mb-8 lg:mb-12 w-full lg:w-fit px-10 bg-primary-700 rounded-md py-4 text-[#F2F2F2] font-semibold tracking-wider"
               >
                 Auto fill
               </button>
@@ -219,13 +219,13 @@ const PostForm = () => {
         </div>
         <div className="py-16 lg:pt-28 lg:pb-16 px-3 lg:px-12 xl:px-20 space-y-7 lg:space-x-11">
           <button
-            className="w-full lg:w-fit px-40 bg-secondary rounded-[10px] py-3 text-[#F2F2F2] font-semibold tracking-wider"
+            className="w-full lg:w-fit px-40 bg-primary-700 rounded-[10px] py-3 text-[#F2F2F2] font-semibold tracking-wider"
             type="submit"
           >
             Submit
           </button>
           <button
-            className="w-full lg:w-fit border-[2px] border-primaryText px-40 bg-neutralWhite rounded-[10px] py-3 text-[#636363] font-semibold tracking-wider"
+            className="w-full lg:w-fit border-[2px] border-neutral-500 px-40 bg-pure-white rounded-[10px] py-3 text-[#636363] font-semibold tracking-wider"
             onClick={handleDelete}
           >
             Delete
