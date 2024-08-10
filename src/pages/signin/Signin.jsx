@@ -2,7 +2,7 @@
 import signinHero from '../../assets/hero.png';
 import vegetableImage from '../../assets/Vegetables.svg';
 import group from '../../assets/Group.svg';
-import facebookIcon from '../../assets/facebook.png';
+import facebookIcon from '../../assets/facebookIcon.svg';
 
 
 const SigninPage = () => {
@@ -10,7 +10,7 @@ const SigninPage = () => {
 
     <div className="flex w-full h-screen  bg-primary-600 ">
     <div className="hidden lg:flex h-full w-1/2 items-center p-2 justify-center bg-primary-600 ">
-      <div className="relative m-5 p-4 ">
+      <div className="relative m-5 pt-8 ">
         <img className="overflow-hidden z-0 bottom-0 object-cover " src={signinHero} alt="Hero" />
         {/*<img className="overflow-hidden z-0 bottom-0 object-cover " src={signinHero} alt="Vegetables" />
          <img className="absolute mt-4 top-[170px] right-[170px] z-10 w-1/2 h-auto object-contain" src={signinHero} alt="Girl" />
@@ -22,29 +22,29 @@ const SigninPage = () => {
       <div className=" bg-primary-600  w-full">
         <div className=" mb-6">
           <h2 className="text-3xl mb-5 font-bold text-secondary-300">Hey, Hello 👋</h2>
-          <p className="mb-3 text-green-50">Enter your email and password to login.</p>
+          <p className="mb-3 text-pure-white">Enter your email and password to login.</p>
         </div>
-        <form>
+        <form >
           <div className="mb-4">
-            <label htmlFor="email" className="block text-green-50">Email or mobile phone number</label>
+            <label htmlFor="email" className="block font-light text-pure-white">Email or mobile phone number</label>
             <input type="text" id="email" className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="example@example.com" />
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block text-green-50">Password</label>
+            <label htmlFor="password" className="block font-light text-pure-white">Password</label>
             <input type="password" id="password" className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="******" />
           </div>
-          <div className="flex items-center justify-between mb-4 px-2">
+          <div className="flex items-center justify-between mb-8 px-2">
             <label className="flex items-center">
               <input type="checkbox" className="form-checkbox h-4 w-4 accent-secondary-300 " />
-              <span className="ml-2 text-green-50">Remember me</span>
+              <span className="ml-2 text-pure-white">Remember me</span>
             </label>
             <a href="#" className="text-secondary-300 hover:text-teal-800">Forgot Password?</a>
           </div>
-          <div className="mb-4 gap-2 flex justify-between items-center ">
-            <button className="w-60 bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-4 rounded-lg border-primary-700 border-2 ">Sign in</button>
-            <button className="w-60 bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-4 rounded-lg border-primary-700 border-2">Sign up</button>
+          <div className="mb-4 gap-5 flex justify-between items-center ">
+            <button className="w-60 bg-primary-600 hover:bg-primary-700 text-pure-white font-semibold py-3 px-4 rounded-lg border-primary-700 border-2">Submit</button>
+            <button className="w-60 bg-primary-600 hover:bg-primary-700 text-pure-white font-semibold py-3 px-4 rounded-lg border-primary-700 border-2">Sign up</button>
           </div>
-          <p className="text-center text-green-50">Don't have an account? <a href="#" className="text-secondary-300 hover:text-primary-700">Sign Up here</a></p>
+          <p className=" text-pure-white">Don't have an account? <a href="#" className="p-2 text-sm font-medium text-secondary-300 hover:text-primary-700">Sign Up here</a></p>
         </form>
         {/* <div className="mt-6 text-center">
           <p>Or</p>
@@ -56,9 +56,9 @@ const SigninPage = () => {
         
         {/* <GoogleAndFace /> */}
         <div className="mt-6 text-center">
-          <p className="text-green-50">Or</p>
-          <div className="mt-4 space-y-4 flex items-center justify-center flex-col">
-            <button className="w-80 flex items-center justify-center gap-2 py-3 bg-gray-100 border-2 border-gray-100 font-semibold  px-4 rounded-lg text-gray-700 hover:bg-gray-200 transition duration-200">
+          <p className="text-secondary-300">Or</p>
+          <div className="mt-4 space-y-2 flex items-center justify-center flex-col">
+            <button className="w-80 flex items-center justify-center gap-2 py-3 bg-primary-600 border-2 border-gray-100 font-semibold  px-4 rounded-lg text-gray-700 hover:bg-gray-200 transition duration-200">
               <svg
                 width="24"
                 height="24"
@@ -85,8 +85,8 @@ const SigninPage = () => {
               </svg>
               Sign in with Google
             </button>
-            <button className="w-80 flex items-center justify-center gap-2 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
-              <img className='w-8 h-8' src={facebookIcon} alt="Facebook Icon" />
+            <button className="w-80 flex items-center justify-center gap-2 py-3 bg-blue-600 text-pure-white rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
+              <img className='w-7 h-7' src={facebookIcon} alt="Facebook Icon" />
               Login with Facebook
             </button>
           </div>
