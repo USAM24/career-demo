@@ -17,9 +17,6 @@ import {
   HomePage,
   HrAssistantPage,
   JobsinEgyptPage,
-  PostJobPage,
-  PostReview,
-  PostSubmit,
   SavedPage,
   SigninPage,
   SignupPage,
@@ -54,11 +51,7 @@ const router = createBrowserRouter(
         />
         <Route path="/application" element={<ApplicationPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/post-job" element={<PostJobLayout />}>
-          <Route index element={<PostJobPage />} />
-          <Route path="review" element={<PostReview />} />
-          <Route path="submit" element={<PostSubmit />} />
-        </Route>
+        <Route path="/post-job" element={<PostJobLayout />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/companies" element={<CompaniesPage />} />
         <Route path="/alqemam" element={<AlqemamPage />} />

@@ -1,9 +1,6 @@
-import PropTypes from 'prop-types';
 import { JobDetails, JobRequiredSkills } from '../../../data';
 
-const PostReviewMain = ({ data }) => {
-  // Destructure userData to extract necessary fields
-  const { firstName, email, jobTitle, JobDescription } = data;
+const PostReviewMain = () => {
   return (
     <div className="flex justify-between gap-5 flex-col lg:flex-row space-y-8 lg:space-y-0">
       {/* Card 1: User Profile Information */}
@@ -15,12 +12,10 @@ const PostReviewMain = ({ data }) => {
         />
         {/* User name */}
         <h1 className="font-bold text-[20px] text-primary-600">
-          {firstName ? firstName : 'Ali Mohamed'}
+          {'Ali Mohamed'}
         </h1>
         {/* User job title */}
-        <p className="text-secondary-300">
-          {jobTitle ? jobTitle : 'HR manager'}
-        </p>
+        <p className="text-secondary-300">{'HR manager'}</p>
         {/* Social media icons */}
         <div className="flex items-center justify-center space-x-4">
           <a href="#">
@@ -63,7 +58,7 @@ const PostReviewMain = ({ data }) => {
         </div>
         <div className="flex items-center justify-between w-full gap-0 lg:gap-24">
           <span className="text-neutral-500 text-[14px]">
-            {email ? email : 'Ali USAM @gmail.com'}
+            {'Ali USAM @gmail.com'}
           </span>
           <span className="text-neutral-500 text-[14px]">10 hrs per day</span>
         </div>
@@ -77,9 +72,9 @@ const PostReviewMain = ({ data }) => {
           </h1>
           {/* Job description text */}
           <p className="text-center md:text-left text-[14px] text-[#797987] leading-[1.6] max-w-[600px] xl:max-w-[900px] xl:text-[18px] xl:leading-[2.1]">
-            {JobDescription
-              ? JobDescription
-              : 'Hiring a product manager this position is open for both graduate and also student are welcome to apply we are looking forward to work with you . to be a good fit you need to be familiar with all the product managing tools and has a good communication skills'}
+            {
+              'Hiring a product manager this position is open for both graduate and also student are welcome to apply we are looking forward to work with you . to be a good fit you need to be familiar with all the product managing tools and has a good communication skills'
+            }
           </p>
         </div>
         <div className="flex lg:flex-row flex-col justify-between w-full lg:gap-8">
@@ -139,15 +134,6 @@ const PostReviewMain = ({ data }) => {
       </div>
     </div>
   );
-};
-
-PostReviewMain.propTypes = {
-  data: PropTypes.shape({
-    firstName: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    jobTitle: PropTypes.string.isRequired,
-    JobDescription: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default PostReviewMain;

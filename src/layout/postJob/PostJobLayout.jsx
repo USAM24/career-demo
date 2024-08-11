@@ -1,12 +1,11 @@
-import { Outlet } from 'react-router-dom';
+import { MultiStepProvider } from '../../context/MultiStepContext';
+import { PostJobPage } from '../../pages';
 
 const PostJobLayout = () => {
   return (
-    <main className="flex flex-col min-h-screen">
-      <div className="flex-grow min-h-[calc(100vh-128px)]">
-        <Outlet />
-      </div>
-    </main>
+    <MultiStepProvider>
+      <PostJobPage />
+    </MultiStepProvider>
   );
 };
 

@@ -55,15 +55,12 @@ export const footerData = [
 export const postSteps = [
   {
     step: 'Register', // The name of the first step
-    url: 'post-job', // URL segment to identify the first step
   },
   {
     step: 'Review', // The name of the second step
-    url: 'post-job/review', // URL segment to identify the second step
   },
   {
     step: 'Submit', // The name of the third step
-    url: 'post-job/submit', // URL segment to identify the third step
   },
 ];
 
@@ -129,15 +126,6 @@ export const formCompanyData = [
   { placeholder: 'Any More Details', type: 'textarea', name: 'moreDetails' },
 ];
 
-export const formCompanyAutofillValues = {
-  companyName: 'Tech Innovators Inc.',
-  companyEmail: 'info@techinnovators.com',
-  companyPhone: '+1-800-123-4567',
-  startedDate: '2020-05-15',
-  numberOfWorkers: 250,
-  moreDetails: 'Specializes in AI and machine learning solutions.',
-};
-
 export const JobRequiredSkills = [
   {
     skill: 'Product managing tools',
@@ -175,3 +163,27 @@ export const JobDetails = [
     details: '10 k per month',
   },
 ];
+
+export const initialUserFormData = {
+  firstName: '',
+  userName: '',
+  email: '',
+  address: '',
+  jobTitle: '',
+  jobType: '',
+  salary: '',
+  closingDate: '',
+  jobQualifications: '',
+  saveAsDraft: '',
+  JobDescription: '',
+};
+
+export const initialFormCompanyData = {
+  companyName: '',
+  companyEmail: '',
+  companyPhone: '',
+  startedDate: '',
+  numberOfWorkers: '',
+  CompanyField: '',
+  moreDetails: '',
+};

@@ -1,82 +1,87 @@
 import { useState } from 'react'; // Importing useState hook from React
-import PropTypes from 'prop-types'; // Importing PropTypes for type-checking props
-import { useNavigate } from 'react-router-dom'; // Importing useNavigate hook for navigation
+import { useMultiStep } from '../../../hooks/useMultiStep';
 
 // Component for displaying and editing a post review form
-const PostReviewForm = ({ data }) => {
-  // Destructuring the data prop to extract relevant company information
-  const { companyEmail, firstName, companyPhone, adress, numberOfWorkers } =
-    data;
-
-  const navigate = useNavigate(); // Hook to navigate to different routes
+const PostReviewForm = () => {
+  const {
+    setCurrentStep,
+    userData,
+    companyData,
+    setCompanyData,
+    finalData,
+    setFinalData,
+  } = useMultiStep();
 
   // Initializing state to manage the form data with default values from props
+  // eslint-disable-next-line no-unused-vars
   const [formDataReview, setFormDataReview] = useState([
     {
       label: 'Company Email',
       name: 'companyEmail',
       type: 'text',
-      value: companyEmail,
     },
     {
       label: 'Number of workers',
       name: 'numberOfWorkers',
       type: 'number',
-      value: numberOfWorkers,
     },
     {
       label: 'Company manager',
       name: 'firstName',
       type: 'text',
-      value: firstName,
     },
     {
       label: 'Company number',
       name: 'companyPhone',
       type: 'tel',
-      value: companyPhone,
     },
     {
       label: 'Company Address',
       name: 'adress',
       type: 'text',
-      value: adress,
     },
     {
       label: 'Company field',
-      name: 'field',
+      name: 'CompanyField',
       type: 'text',
-      value: 'Investment', // Default value as 'Investment'
     },
   ]);
-
+  console.log('u', userData, 'c', companyData);
   // State to toggle between edit and view modes
   const [isEditing, setIsEditing] = useState(false);
 
   // Toggle edit mode on and off
-  const handleEditClick = () => {
-    setIsEditing((prev) => !prev);
+  const handleButtonClick = () => {
+    if (!isEditing) {
+      // If in edit mode, save the data
+      setIsEditing(true);
+    } else {
+      // If not in edit mode, allow editing
+      setIsEditing(false);
+    }
   };
-
+  const handleNextStep = () => {
+    setCurrentStep((prevStep) => prevStep + 1);
+  };
+  const handlePrevStep = () => {
+    setCurrentStep((prevStep) => prevStep - 1);
+  };
   // Update form data when input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormDataReview((prevFormData) =>
-      prevFormData.map((item) =>
-        item.name === name ? { ...item, value } : item
-      )
-    );
+    setCompanyData({ ...companyData, [name]: value });
   };
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
-    const firstNameValue = formDataReview.find(
-      (item) => item.name === 'firstName'
-    ).value; // Extracting the firstName value from the form data
-    navigate('/post-job/submit', { state: { firstName: firstNameValue } }); // Navigating to another route with state
+    e.preventDefault();
+    const combinedData = {
+      ...userData, // Data from the personal information form
+      ...companyData, // Data from the job description form
+    };
+    setFinalData({ combinedData });
+    console.log('data', finalData);
   };
-
   return (
     <form className="py-6 px-4" onSubmit={handleSubmit}>
       {/* Container for the form fields */}
@@ -97,7 +102,7 @@ const PostReviewForm = ({ data }) => {
             </div>
             {/* Edit button to toggle edit mode */}
             <button
-              onClick={handleEditClick}
+              onClick={handleButtonClick}
               type="button"
               className={`${
                 !isEditing ? 'bg-primary-700' : 'bg-secondary-300'
@@ -117,84 +122,77 @@ const PostReviewForm = ({ data }) => {
                   d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
                 />
               </svg>
-              Edit
+              {isEditing ? 'Save' : 'Edit'}
             </button>
           </div>
           <div className="py-4 space-y-7 lg:space-y-0 flex flex-col lg:flex-row lg:gap-10 lg:mx-10">
             <div className="space-y-3 lg:space-y-6">
               {/* Render first half of form fields */}
-              {formDataReview
-                .slice(0, 3)
-                .map(({ label, name, type, value }) => (
-                  <div key={name} className="">
-                    <label
-                      htmlFor={name}
-                      className="text-neutral-700 text-base font-normal"
-                    >
-                      {label}
-                    </label>
-                    <input
-                      type={type}
-                      name={name}
-                      value={value}
-                      disabled={!isEditing} // Disable input if not in edit mode
-                      onChange={handleInputChange}
-                      className={`w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700 ${
-                        !isEditing ? 'cursor-not-allowed' : 'cursor-auto'
-                      }`}
-                    />
-                  </div>
-                ))}
+              {formDataReview.slice(0, 3).map(({ label, name, type }) => (
+                <div key={name} className="">
+                  <label
+                    htmlFor={name}
+                    className="text-neutral-700 text-base font-normal"
+                  >
+                    {label}
+                  </label>
+                  <input
+                    type={type}
+                    name={name}
+                    value={companyData[name]}
+                    disabled={!isEditing} // Disable input if not in edit mode
+                    onChange={handleInputChange}
+                    className={`w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700 ${
+                      !isEditing ? 'cursor-not-allowed' : 'cursor-auto'
+                    }`}
+                  />
+                </div>
+              ))}
             </div>
             <div className="space-y-3 lg:space-y-6">
               {/* Render second half of form fields */}
-              {formDataReview
-                .slice(3, 6)
-                .map(({ label, name, type, value }) => (
-                  <div key={name} className="">
-                    <label
-                      htmlFor={name}
-                      className="text-neutral-700 text-base font-normal"
-                    >
-                      {label}
-                    </label>
-                    <input
-                      type={type}
-                      name={name}
-                      value={value}
-                      disabled={!isEditing} // Disable input if not in edit mode
-                      onChange={handleInputChange}
-                      className={`w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700 ${
-                        !isEditing ? 'cursor-not-allowed' : 'cursor-auto'
-                      }`}
-                    />
-                  </div>
-                ))}
+              {formDataReview.slice(3, 6).map(({ label, name, type }) => (
+                <div key={name} className="">
+                  <label
+                    htmlFor={name}
+                    className="text-neutral-700 text-base font-normal"
+                  >
+                    {label}
+                  </label>
+                  <input
+                    type={type}
+                    name={name}
+                    value={companyData[name]}
+                    disabled={!isEditing} // Disable input if not in edit mode
+                    onChange={handleInputChange}
+                    className={`w-full rounded-md bg-[#F2F2F2] outline-none border border-[#B4FDF2] py-3 px-5 xl:py-5 lg:px-7 caret-neutral-700 placeholder:text-neutral-700 ${
+                      !isEditing ? 'cursor-not-allowed' : 'cursor-auto'
+                    }`}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-      <div className="mt-10 pb-16 lg:pb-0">
+      <div className="py-4 lg:pt-28 lg:pb-16 container mx-auto space-y-7 lg:space-x-11">
         <button
           className="w-full md:w-fit md:px-40 bg-primary-700 rounded-[10px] py-3 text-[#F2F2F2] font-semibold tracking-wider"
           type="submit"
+          onClick={handleNextStep}
         >
           Submit
+        </button>
+        <button
+          className="w-full md:w-fit md:px-40 bg-primary-700 rounded-[10px] py-3 text-[#F2F2F2] font-semibold tracking-wider"
+          type="submit"
+          onClick={handlePrevStep}
+        >
+          Back
         </button>
       </div>
     </form>
   );
-};
-
-// Defining the expected shape of the data prop
-PostReviewForm.propTypes = {
-  data: PropTypes.shape({
-    companyEmail: PropTypes.string,
-    firstName: PropTypes.string,
-    companyPhone: PropTypes.string,
-    adress: PropTypes.string,
-    numberOfWorkers: PropTypes.number,
-  }),
 };
 
 export default PostReviewForm; // Exporting the component as the default export
