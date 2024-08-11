@@ -1,17 +1,8 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import PostHero from '../../SVG/PostHero';
-import Send from '../../SVG/Send';
+import PostHero from '../../../SVG/PostHero';
+import { Send } from 'lucide-react';
 
-const PostMain = () => {
-  const [value, setvalue] = useState('');
-
-  const onChangeHandler = (e) => {
-    setvalue(e.target.value);
-  };
-
-  console.log(value);
-
+const PostRegisterMain = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between 2xl:container 2xl:mx-auto">
       {/* Left section with a hero image */}
@@ -47,11 +38,9 @@ const PostMain = () => {
             <div className="flex items-center lg:w-[329px] w-[250px] bg-pure-white rounded-tl rounded-bl p-3">
               <Send className="text-secondary-300 mr-3 w-5 h-5" />
               <input
-                type="text"
+                type="email"
                 className="w-full outline-none text-neutral-500 placeholder:text-neutral-500 caret-neutral-500 placeholder:text-sm"
                 placeholder="Enter your email address"
-                value={value}
-                onChange={onChangeHandler}
               />
             </div>
             <button className="bg-secondary-300 rounded-tr rounded-br p-3 text-pure-white">
@@ -64,4 +53,4 @@ const PostMain = () => {
   );
 };
 
-export default PostMain;
+export default PostRegisterMain;

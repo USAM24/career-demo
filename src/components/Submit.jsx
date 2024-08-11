@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'; // Import Framer Motion for animations
+import { useMultiStep } from '../hooks/useMultiStep';
 
 /**
  * Submit Component
@@ -12,12 +12,12 @@ import { motion } from 'framer-motion'; // Import Framer Motion for animations
  * - data (any): This prop holds the user's first name or any other relevant data to be displayed in the message.
  */
 
-const Submit = ({ data }) => {
+const Submit = () => {
   const location = useLocation(); // Hook to get the current location object
   const pathname = location.pathname; // Extract the current pathname
   const navigate = useNavigate(); // Hook to navigate programmatically
-  const firstName = data; // The data prop is assigned to firstName for use in the message
 
+  const { userData } = useMultiStep();
   return (
     <motion.div
       className="container mx-auto flex items-center justify-center px-5 lg:px-0"
@@ -39,9 +39,9 @@ const Submit = ({ data }) => {
             Successfully submitted
           </h1>
           <p className="text-[#37383D]">
-            Thank you <span className="font-bold">{firstName}</span> for
-            submitting, you will receive an email notification for the best{' '}
-            {pathname === '/post-job/submit'
+            Thank you <span className="font-bold">{userData.firstName}</span>{' '}
+            for submitting, you will receive an email notification for the best{' '}
+            {pathname === '/post-job'
               ? 'candidates'
               : 'job offers and the results of your application'}{' '}
             very soon.
@@ -59,11 +59,6 @@ const Submit = ({ data }) => {
       </div>
     </motion.div>
   );
-};
-
-// Define prop types for the Submit component
-Submit.propTypes = {
-  data: PropTypes.any.isRequired,
 };
 
 export default Submit;
