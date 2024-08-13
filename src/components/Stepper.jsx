@@ -24,7 +24,7 @@ const Stepper = ({ currentStep, steps }) => {
       exit="exit" // Exit animation state
       variants={containerVariants} // Apply container animation variants
     >
-      <div className="container mx-auto hidden lg:flex items-center justify-center pt-8 pb-20">
+      <div className="container mx-auto flex items-center justify-center pt-8 pb-20 px-9 lg:px-0">
         {steps.map(({ step }, idx) => (
           <div key={idx} className={`${idx >= 2 ? 'w-20' : 'w-[390px]'}`}>
             <motion.div
@@ -35,7 +35,7 @@ const Stepper = ({ currentStep, steps }) => {
               transition={{ duration: 0.5 }} // Duration of the animation
             >
               <div
-                className={`w-20 h-20 rounded-full flex items-center justify-center font-bold text-[32px] ${
+                className={`w-12 h-12 lg:w-20 lg:h-20 rounded-full flex items-center justify-center font-bold text-[20px] lg:text-[32px] ${
                   isCurrentStep(idx)
                     ? 'bg-secondary-300 text-pure-white' // Active step styles
                     : 'bg-pure-white text-primary-600 border border-[#83FCEA]' // Inactive step styles
@@ -46,13 +46,13 @@ const Stepper = ({ currentStep, steps }) => {
               <div
                 className={`${
                   idx < steps.length - 1
-                    ? 'w-[calc(100%-80px)] bg-[#83FCEA] h-[2px]'
+                    ? 'w-[calc(100%-45px)] lg:w-[calc(100%-80px)] bg-[#83FCEA] h-[2px]'
                     : ''
                 }`}
               />
             </motion.div>
             <div
-              className={`text-[20px] font-normal pt-5 text-left ${
+              className={`text-[14px] lg:text-[20px] font-normal pt-5 text-left ${
                 isCurrentStep(idx) ? 'text-primary-600' : 'text-neutral-700'
               }`}
             >

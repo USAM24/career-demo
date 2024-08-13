@@ -25,6 +25,7 @@ import {
   UsersPage,
 } from '../pages';
 import { PostJobLayout, RootLayout } from '../layout';
+import ApplyForJobLayout from '../layout/applyForJob/ApplyForJobLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,6 +50,7 @@ const router = createBrowserRouter(
           path="/complete-application"
           element={<CompleteApplicationPage />}
         />
+        <Route path="/apply-job" element={<ApplyForJobLayout />} />
         <Route path="/application" element={<ApplicationPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/post-job" element={<PostJobLayout />} />

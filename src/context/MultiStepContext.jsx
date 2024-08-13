@@ -1,6 +1,10 @@
 import { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { initialFormCompanyData, initialUserFormData } from '../data';
+import {
+  initialApplyFormFields,
+  initialFormCompanyData,
+  initialUserFormData,
+} from '../data';
 
 // Create a Context for the multi-step process
 export const MultiStepContext = createContext();
@@ -12,7 +16,7 @@ export const MultiStepProvider = ({ children }) => {
   const [userData, setUserData] = useState(initialUserFormData);
   const [companyData, setCompanyData] = useState(initialFormCompanyData);
   const [finalData, setFinalData] = useState({});
-
+  const [userApplyData, setUserApplyData] = useState(initialApplyFormFields);
   // Create a value object with the state and functions
   const value = {
     currentStep,
@@ -23,6 +27,8 @@ export const MultiStepProvider = ({ children }) => {
     setCompanyData,
     finalData,
     setFinalData,
+    userApplyData,
+    setUserApplyData,
   };
 
   return (

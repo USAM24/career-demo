@@ -7,7 +7,7 @@ const PostReview = () => {
   const { currentStep } = useMultiStep();
   return (
     <div>
-      <div className="pb-16 pt-28 lg:block hidden">
+      <div className=" pt-28">
         <Stepper steps={postSteps} currentStep={currentStep} />
       </div>
       <div className="bg-primary-700 py-8 px-5 md:p-12  lg:py-20 lg:px-24 mt-20 lg:mt-0">

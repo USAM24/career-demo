@@ -2,7 +2,7 @@
 export const navData = [
   { id: 1, name: 'Home', link: '/' }, // Home page
   { id: 2, name: 'For Job seekers', link: '/application' }, // Job seekers page
-  { id: 3, name: 'For Companies', link: '/companies' }, // Companies page
+  { id: 3, name: 'Find a job', link: '/apply-job' }, // Find a job page
   { id: 4, name: 'Blog', link: '/blog' }, // Blog page
   { id: 5, name: 'Post a job', link: '/post-job' }, // Post a job page
 ];
@@ -186,4 +186,120 @@ export const initialFormCompanyData = {
   numberOfWorkers: '',
   CompanyField: '',
   moreDetails: '',
+};
+
+export const ApplyFormFields = [
+  {
+    label: 'Name',
+    name: 'name',
+    type: 'text',
+    placeholder: 'Enter your name',
+  },
+  {
+    label: 'Country',
+    name: 'country',
+    type: 'select',
+    options: [
+      'Egypt',
+      'Saudi Arabia',
+      'Qatar',
+      'Kuwait',
+      'United Arab Emirates',
+    ], // Add more countries as needed
+  },
+  {
+    label: 'Mobile Number',
+    name: 'mobileNumber',
+    type: 'tel',
+    placeholder: 'Enter your mobile number',
+  },
+  {
+    label: 'Age',
+    name: 'age',
+    type: 'number',
+    placeholder: 'Enter your age',
+  },
+  {
+    label: 'Job',
+    name: 'job',
+    type: 'text',
+    placeholder: 'Enter your job title',
+  },
+  {
+    label: 'College',
+    name: 'college',
+    type: 'text',
+    placeholder: 'Enter your college name',
+  },
+  {
+    label: 'Expected Salary',
+    name: 'expectedSalary',
+    type: 'text',
+    placeholder: 'Enter your expected salary',
+  },
+  {
+    label: 'Address',
+    name: 'address',
+    type: 'text',
+    placeholder: 'Enter your address',
+  },
+  {
+    label: 'Experience',
+    name: 'experience',
+    type: 'text',
+    placeholder: 'Enter your experience',
+  },
+  {
+    label: 'Date of Birth',
+    name: 'dateOfBirth',
+    type: 'date',
+  },
+  {
+    label: 'Experiences',
+    name: 'experiences',
+    type: 'textarea',
+    placeholder: 'Enter your experiences',
+  },
+  {
+    label: 'Availability to Work',
+    name: 'availability',
+    type: 'radio',
+    options: ['Immediately', 'Later'],
+  },
+  {
+    label: 'Gender',
+    name: 'gender',
+    type: 'text',
+    placeholder: 'Enter your gender',
+  },
+  {
+    label: 'Skills',
+    name: 'skills',
+    type: 'checkbox',
+    options: [],
+  },
+  {
+    label: 'Meta Description',
+    name: 'metaDescription',
+    type: 'textarea',
+    placeholder: 'Enter meta description',
+  },
+];
+
+export const initialApplyFormFields = {
+  name: '',
+  country: '',
+  mobileNumber: '',
+  age: 0,
+  job: '',
+  college: '',
+  expectedSalary: '',
+  address: '',
+  experience: '',
+  dateOfBirth: '',
+  availability: '',
+  gender: '',
+  metaDescription: '',
+  skills: ['Programming', 'Designing', 'UI/UX'],
+  experiences: '',
 };

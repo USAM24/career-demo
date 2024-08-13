@@ -1,0 +1,7 @@
+.custom-select {
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2.5rem; /* Space for the custom arrow */
+  position: relative;
+}
