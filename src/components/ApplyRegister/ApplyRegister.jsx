@@ -2,6 +2,7 @@ import { postSteps } from '../../data';
 import { useMultiStep } from '../../hooks/useMultiStep';
 import ApplyCandidateForm from '../applyForJobParts/ApplyCandidateForm/ApplyCandidateForm';
 import ApplyRegisterHero from '../applyForJobParts/ApplyRegisterHero/ApplyRegisterHero';
+import Join from '../Join/Join';
 import Stepper from '../Stepper';
 
 const ApplyRegister = () => {
@@ -18,6 +19,9 @@ const ApplyRegister = () => {
         </div>
       </div>
       <ApplyCandidateForm />
+      <div className="mt-28">
+        <Join />
+      </div>
     </>
   );
 };
