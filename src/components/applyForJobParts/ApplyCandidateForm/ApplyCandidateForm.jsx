@@ -13,9 +13,6 @@ const ApplyCandidateForm = () => {
   // setUserApplyData updates the form data.
   const { setCurrentStep, userApplyData, setUserApplyData } = useMultiStep();
 
-  // Log the current form data for debugging purposes.
-  console.log(userApplyData);
-
   // Function to advance to the next step in the form.
   const handleNextStep = () => {
     setCurrentStep((prevStep) => prevStep + 1);
